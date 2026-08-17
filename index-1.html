@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDIT / Video Editor Portfolio</title>
+<meta name="description" content="Video editor & motion designer portfolio">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Custom cursor dot (proximity feel) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Noise / grain overlay -->
+<div class="grain"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo" id="navLogo">EDIT<span>.</span></a>
+  <nav class="nav-links">
+    <a href="#reel"><span class="tc">00:01</span>Reel</a>
+    <a href="#work"><span class="tc">00:02</span>Work</a>
+    <a href="#about"><span class="tc">00:03</span>About</a>
+    <a href="#contact"><span class="tc">00:04</span>Contact</a>
+  </nav>
+  <div class="nav-clock" id="navClock">00:00:00:00</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-stage" id="heroStage">
+    <!-- floating software badges (proximity/parallax layer) -->
+    <div class="float-layer" id="floatLayer"><!-- injected by script.js from CONFIG.software --></div>
+
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="rec-dot"></span> AVAILABLE FOR PROJECTS — <span id="heroLocation">LOCATION</span></p>
+      <h1 class="hero-title">
+        <span id="heroName">YOUR NAME</span>
+        <em id="heroRole">Video Editor &amp; Motion Designer</em>
+      </h1>
+      <p class="hero-tagline" id="heroTagline">
+        I cut stories that move — trailers, gaming edits and motion graphics built frame by frame.
+      </p>
+      <div class="hero-cta">
+        <a href="#reel" class="btn btn-primary">Watch Reel <span class="btn-arrow">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- timeline scrubber signature element -->
+  <div class="scrubber" id="scrubber">
+    <div class="scrubber-track">
+      <div class="scrubber-fill" id="scrubberFill"></div>
+      <div class="scrubber-playhead" id="scrubberPlayhead"></div>
+    </div>
+    <div class="scrubber-labels">
+      <span>00:00:00:00</span>
+      <span class="scrubber-title">SCROLL TO PLAY</span>
+      <span id="scrubberEnd">00:04:12:00</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REEL ============ -->
+<section class="reel" id="reel">
+  <div class="section-head">
+    <span class="tc-label">00:01 / SHOWREEL</span>
+    <h2>The Reel</h2>
+  </div>
+  <div class="reel-frame">
+    <div class="reel-video" id="reelVideo"><!-- YouTube iframe injected --></div>
+    <div class="reel-corner tl"></div>
+    <div class="reel-corner tr"></div>
+    <div class="reel-corner bl"></div>
+    <div class="reel-corner br"></div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="work" id="work">
+  <div class="section-head">
+    <span class="tc-label">00:02 / SELECTED WORK</span>
+    <h2>Recent Cuts</h2>
+  </div>
+  <div class="filters" id="filters"><!-- injected --></div>
+  <div class="grid" id="workGrid"><!-- injected from CONFIG.projects --></div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-media">
+      <div class="about-photo-frame">
+        <img id="aboutPhoto" src="" alt="Profile photo">
+      </div>
+      <div class="about-soft-badge">
+        <span id="aboutYears">3+</span> yrs editing
+      </div>
+    </div>
+    <div class="about-copy">
+      <span class="tc-label">00:03 / ABOUT</span>
+      <h2>Who's cutting</h2>
+      <p id="aboutBio">Bio goes here — replace CONFIG.bio in script.js with your own story.</p>
+      <div class="skills" id="skillsList"><!-- injected --></div>
+      <div class="software-strip" id="softwareStrip"><!-- injected --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="tc-label">00:04 / CONTACT</span>
+    <h2>Let's cut something<br>together.</h2>
+    <a class="contact-email" id="contactEmail" href="#"></a>
+    <div class="contact-details">
+      <div class="contact-block">
+        <span>Phone</span>
+        <p id="contactPhone"></p>
+      </div>
+      <div class="contact-block">
+        <span>Location</span>
+        <p id="contactLocation"></p>
+      </div>
+      <div class="contact-block">
+        <span>Socials</span>
+        <div class="socials" id="socials"><!-- injected --></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <span id="footerName">Your Name</span>
+  <span>© <span id="footerYear"></span> — Built for GitHub Pages</span>
+</footer>
+
+<!-- ============ VIDEO MODAL ============ -->
+<div class="modal" id="videoModal">
+  <div class="modal-inner">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-video" id="modalVideo"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
